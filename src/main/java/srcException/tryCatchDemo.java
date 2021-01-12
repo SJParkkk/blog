@@ -46,17 +46,16 @@ public class tryCatchDemo {
                 .filter(s -> s.equals(26)).collect(Collectors.toList());
 
         try{
-            System.out.println(0/0);// ArithmeticException 오류 발생
-
             for (int i = 0; i < ageList.size() + 1; i++) {
                 System.out.println(ageList.get(i));
-            }// 실행 되지 않음, IndexOutOfBoundException 오류 발생
-
+            }// IndexOutOfBoundException 오류 발생
+            System.out.println(0/0);// ArithmeticException 오류 발생
             System.out.println(4);// 실행 되지 않음
 
 
         }catch(IndexOutOfBoundsException IE){
-            System.out.println("배열이 범위를 벗어 납니다.");
+            IE.printStackTrace();
+            System.out.println("예외 메시지:" + IE.getMessage());
         }catch(ArithmeticException AE){
 //            하나의 오류가 실행되면 두 번째 오류는 실행되지 않음
             System.out.println("0으로 나눌 수 없습니다.");
