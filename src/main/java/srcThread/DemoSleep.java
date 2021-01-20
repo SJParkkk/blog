@@ -6,12 +6,13 @@ public class DemoSleep {
         Thread_2 thread_2 = new Thread_2();
         thread_1.start();
         thread_2.start();
-        try{
-            System.out.println("sleep시작");
-            thread_1.sleep(50);//thread_1을 sleep하는 것이 아니라 현재 실행중인 thread를 종료 시킨다.
-        }catch(InterruptedException ie){
-
-        }
+        thread_2.interrupt();
+//        try{
+//            System.out.println("sleep시작");
+//            thread_1.sleep(50);//thread_1을 sleep하는 것이 아니라 현재 실행중인 thread를 종료 시킨다.
+//        }catch(InterruptedException ie){
+//
+//        }
         System.out.println("<main종료>");
     }
 }
@@ -24,10 +25,13 @@ class Thread_1 extends Thread{
     }
 }
 class Thread_2 extends Thread{
-    public void run(){
-        for (int i = 0; i < 100; i++) {
-            System.out.println("&");
+    // interrupted 가 발생하지 않을 때에만 실행해야함
+    public void run() {
+        while (!interrupted()) {
+            for (int i = 0; i < 100; i++) {
+                System.out.println("&");
+            }
+            System.out.println("<thread2종료>");
         }
-        System.out.println("<thread2종료>");
     }
 }
