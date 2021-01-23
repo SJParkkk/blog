@@ -1,6 +1,5 @@
 package srcException;
 
-import jdk.jfr.events.ExceptionThrownEvent;
 
 public class re_Throwing {
     public static void main(String[] args) {
