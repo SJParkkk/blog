@@ -2,7 +2,7 @@ package Scope;
 
 public class ClassAndInstanceVariable {
     public static void main(String[] args) {
-        // 클래스 변수는 인스턴스를 생성 안하고도 출력할 수 있음 : static이므로 stack 에 올라가 있음
+        // 클래스 변수는 인스턴스를 생성 안하고도 출력할 수 있음 : static 이므로 stack 에 올라가 있음
         System.out.println(DemoClass.height);
         System.out.println(DemoClass.width);
 
