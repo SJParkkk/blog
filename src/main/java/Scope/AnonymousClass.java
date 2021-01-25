@@ -7,7 +7,7 @@ import org.w3c.dom.ls.LSOutput;
     ** 새로운 메소드나 필드를 선언할 수 있지만
        클래스 밖에서 선언이 불가능함 - 부모클래스의 인스턴스이므로 자식클래스의 메소드나 필드 접근 불가 !
  }
-* 사용하는 이유 : */
+* 사용하는 이유 : 객체를 사용할 때마다 new로 생성하는 것은 비효울적이다*/
 public class AnonymousClass {
     public static void main(String[] args) {
         Test t1 = new Test(){
