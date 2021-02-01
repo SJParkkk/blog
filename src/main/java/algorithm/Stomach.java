@@ -9,24 +9,28 @@ import java.util.*;
 public class Stomach {
     public static int solution(String[][] clothes){
      int answer = 1;
-     Map<String, Integer> hm = new HashMap<>();
-     int value = 1;
-     for(String[] clo: clothes){
-         if(hm.containsKey(clo[1])){
-             int addValue = hm.get(clo[1])+1;
-             hm.put(clo[1],addValue);
-         }
-         hm.putIfAbsent(clo[1],value);
-     }
-     for (Integer i: hm.values()){
-         answer *= i ;
+        Map<String, Integer> hm= makeMap(clothes);
+        for (Integer i: hm.values()){
+         answer *= i + 1 ;
         }
      return answer - 1;
     }
     public static void main(String[] args) {
-     String[][] clothes ={{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"},{"green_turban", "headgear"}};
-     Map<String, Integer> myMap = new HashMap<>();
-     int value = 1;
+     String[][] clothes ={{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"}};
+        Map<String, Integer> myMap = makeMap(clothes);
+        int answer = 1;
+        for (Integer integer : myMap.values()) {
+            System.out.println(integer);
+            answer *= integer + 1;
+        }
+        // 아무것도 장착 안한 경우 제거해야함
+        System.out.println(answer - 1);
+        System.out.println(solution(clothes));
+    }
+
+    private static Map<String, Integer> makeMap(String[][] clothes) {
+        Map<String, Integer> myMap = new HashMap<>();
+        int value = 1;
         for (String[] clothe : clothes){
             if(myMap.containsKey(clothe[1])){
                 int addValue = myMap.get(clothe[1]) + 1;
@@ -34,14 +38,7 @@ public class Stomach {
             }
             myMap.putIfAbsent(clothe[1],value);
         }
-        int answer = 1;
-        for (Integer integer : myMap.values()) {
-            System.out.println(integer);
-            answer *= integer;
-        }
-        // 아무것도 장착 안한 경우 제거해야함
-        System.out.println(answer - 1);
-        System.out.println(solution(clothes));
+        return myMap;
     }
 }
 
