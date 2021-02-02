@@ -6,6 +6,7 @@ import java.util.Map;
 
 // 1.람다식으로 풀어보기/ Merge
 /**
+ *Map<_, Integer>
  default V merge(K key, V value, BiFunction<T,U, R>) {
  K key가 없으면 V 있으면 있는값 (연산자) 들어온 값
  * **/
@@ -20,9 +21,7 @@ public class StomachInRamda {
             answer *= i;
         }
         return answer - 1;
-
     }
-
     public static void main(String[] args) {
         String[][] clothes ={{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"}};
         System.out.println(solutionInMerge(clothes));

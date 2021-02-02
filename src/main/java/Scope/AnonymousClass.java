@@ -42,5 +42,7 @@ class Test{
         this.number = number;
     }
 
-    void whatNumber(){};
+    void whatNumber(){
+        System.out.println("test");
+    };
 }
