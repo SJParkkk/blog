@@ -1,4 +1,4 @@
-package annotaion;
+package anno;
 // 왜 어노테이션을 사용하는지
 // override의 예로
 // 어노테이션 종류
